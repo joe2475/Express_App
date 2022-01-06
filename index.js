@@ -2,16 +2,16 @@ const { response } = require("express");
 const express = require("express");
 const app = express(); 
 const port = 8080;
+const morgan = require("morgan");
 
 //middleware imports
-const logger = require('./middleware/logger');
 const notFound = require('./middleware/notFound');
 const errorHandeler = require('./middleware/errorHandler');
 const errorHandler = require("./middleware/errorHandler");
 
-// middleware wire up
-app.use(logger);
 
+// middleware wire up
+app.use(morgan('dev')); 
 
 app.get('/', (req, res) =>
 {
