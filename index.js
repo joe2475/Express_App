@@ -8,28 +8,14 @@ const morgan = require("morgan");
 const notFound = require('./middleware/notFound');
 const errorHandeler = require('./middleware/errorHandler');
 const errorHandler = require("./middleware/errorHandler");
-
+const userRouter = require('./routers/user.router');
 
 // middleware wire up
 app.use(morgan('dev')); 
 
-app.get('/', (req, res) =>
-{
-    res.send("It works!");
-})
-
-app.get('/something', (req, res) =>{
-    res.send("Something works");
-});
+app.use('/users', userRouter);
 
 
-app.get('/error', (req, res, next) => {
-   const mockError = {
-       status: 403,
-       message: 'Something went wrong'
-   }
-   next(mockError);
-})
 
 app.use(notFound);
 app.use(errorHandler);
