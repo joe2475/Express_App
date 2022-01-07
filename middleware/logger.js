@@ -1,5 +1,5 @@
 //logger middleware 
-//replaced later with the package Morgan
+//replaced later with the middleware Morgan
 const logger = (req, res, next) => {
     const {url, method} = req; 
     const time = new Date();

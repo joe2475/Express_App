@@ -9,8 +9,11 @@ const notFound = require('./middleware/notFound');
 const errorHandeler = require('./middleware/errorHandler');
 const errorHandler = require("./middleware/errorHandler");
 const userRouter = require('./routers/user.router');
+const bodyParser = require('body-parser');
 
 // middleware wire up
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev')); 
 
 app.use('/users', userRouter);
