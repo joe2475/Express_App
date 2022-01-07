@@ -3,8 +3,9 @@ const router = express.Router();
 const User = require('../models/user.model');
 
 
-const users = [new User('Justin', 47),
-                new User('Wes', 29)]; 
+const users = [new User('James', 47),
+                new User('Jennifer', 29),
+                new User('Alice', 50)]; 
 
 // GET  /users -> give all of the users
 router.get('/', (req, res)=>{
